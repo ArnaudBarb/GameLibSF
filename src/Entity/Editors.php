@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EditorsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EditorsRepository::class)]
@@ -44,6 +46,36 @@ class Editors
     public function setCountries(?string $countries): self
     {
         $this->countries = $countries;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, EditorsHasStudios>
+     */
+    public function getEditorsHasStudios(): Collection
+    {
+        return $this->editorsHasStudios;
+    }
+
+    public function addEditorsHasStudio(EditorsHasStudios $editorsHasStudio): self
+    {
+        if (!$this->editorsHasStudios->contains($editorsHasStudio)) {
+            $this->editorsHasStudios[] = $editorsHasStudio;
+            $editorsHasStudio->setIdEditor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEditorsHasStudio(EditorsHasStudios $editorsHasStudio): self
+    {
+        if ($this->editorsHasStudios->removeElement($editorsHasStudio)) {
+            // set the owning side to null (unless already changed)
+            if ($editorsHasStudio->getIdEditor() === $this) {
+                $editorsHasStudio->setIdEditor(null);
+            }
+        }
 
         return $this;
     }
