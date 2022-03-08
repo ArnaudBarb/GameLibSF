@@ -9,15 +9,22 @@ use Doctrine\ORM\Mapping as ORM;
 class GamesHasPlatforms
 {
     #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    private $id;
+    
     #[ORM\ManyToOne(targetEntity: Games::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $id_game;
 
-    #[ORM\Id]
-
     #[ORM\ManyToOne(targetEntity: Platforms::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $id_platform;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getIdGame(): ?Games
     {
