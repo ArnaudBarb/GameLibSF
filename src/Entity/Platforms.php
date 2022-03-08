@@ -14,10 +14,10 @@ class Platforms
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $manufacturers;
+    private $modelName;
 
     #[ORM\Column(type: 'string', length: 45)]
-    private $model;
+    private $modelRef;
 
     public function getId(): ?int
     {
@@ -26,24 +26,24 @@ class Platforms
 
     public function getManufacturers(): ?string
     {
-        return $this->manufacturers;
+        return $this->modelName;
     }
 
-    public function setManufacturers(string $manufacturers): self
+    public function setManufacturers(string $modelName): self
     {
-        $this->manufacturers = $manufacturers;
+        $this->modelName = $modelName;
 
         return $this;
     }
 
     public function getModel(): ?string
     {
-        return $this->model;
+        return $this->modelRef;
     }
 
-    public function setModel(string $model): self
+    public function setModel(string $modelRef): self
     {
-        $this->model = $model;
+        $this->modelRef = $modelRef;
 
         return $this;
     }
