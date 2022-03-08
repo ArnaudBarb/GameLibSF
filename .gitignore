@@ -213,3 +213,5 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/linux,windows,osx,macos,visualstudiocode,jetbrains+all
 src/Entity/UsersHasGamesHasPlatforms.php
 src/Repository/UsersHasGamesHasPlatformsRepository.php
+studios.txt
+studios.txt.bak
