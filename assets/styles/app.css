@@ -1,4 +1,25 @@
+@import url('reset.css');
+
 body {
-    background-color: lightgray;
-    color: blue;
+    background-image: url('../img/background.jpg');
+    color: white;
+    text-shadow: 1px 1px 3px black;
 }
+body img{
+    opacity: .3;
+    
+}
+ul {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    list-style: none;
+    text-shadow: 1px 1px 3px black;
+}
+a {
+    list-style: none;
+    text-decoration:rgb(0, 0, 0);
+    color:coral;
+    text-shadow: 1px 1px 3px black;
+}
+
